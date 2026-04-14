@@ -24,5 +24,9 @@ jobs:
           echo "REPO_LOWER=$REPO_LOWER" >> $GITHUB_ENV
           echo "Repository name: $REPO_LOWER"
           echo "Capital docker name to simple lowercase"
-          docker tag sample-website:latest ghcr.io/${{ env.REPO_LOWER }}:latest
-          docker push ghcr.io/${{ env.REPO_LOWER }}:latest
+
+      - name: Tag and Push Docker image to GitHub Container Registry
+        run: docker tag sample-website:latest ghcr.io/${{ env.REPO_LOWER }}:latest
+      
+      - name: Push Docker image to GitHub Container Registry
+        run: docker push ghcr.io/${{ env.REPO_LOWER }}:latest

@@ -19,7 +19,7 @@ jobs:
           docker build -t sample-website:latest .
       - name: Push Docker image to Docker Hub
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${{ secrets.GITHUB_ACTOR }} --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${{ secrets.GITHUB_ACTOR }} ghcr.io --password-stdin
           echo "Capital docker name to simple lowercase"
           ImageName=$(echo "sample-website" | tr '[:upper:]' '[:lower:]')
           docker tag sample-website:latest ${{ secrets.GITHUB_ACTOR }}/$ImageName:latest

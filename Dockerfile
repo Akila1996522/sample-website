@@ -1,6 +1,6 @@
 FROM redhat/ubi8
 
-LABEL maintainer="Pubudu Senadeera"
+LABEL maintainer="Akila Peiris"
 
 RUN yum -y install httpd
 
